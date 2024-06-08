@@ -1,2 +1,3 @@
 # astrotech
-A PyTorch training engine
+
+A configurable and extensible PyTorch training engine
