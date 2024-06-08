@@ -7,6 +7,7 @@ from astrotech.utils.event import ConditionalEventHandler, EventHandler
 
 def hello_handler() -> None:
     r"""Implements a simple handler that prints hello."""
+    print("Hello!")  # noqa: T201
 
 
 ##################################
