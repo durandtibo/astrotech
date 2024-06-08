@@ -33,7 +33,6 @@ def disable_logging(level: int | str = logging.CRITICAL) -> Generator[None, None
     ...     logging.info("INFO")
     ...     logging.debug("DEBUG")
     ...
-    CRITICAL:root:CRITICAL
 
     ```
     """
