@@ -464,9 +464,9 @@ class BaseRecord(Generic[T], ABC, metaclass=AbstractFactory):
 
 
 class EmptyRecordError(Exception):
-    r"""Generates an error if the record is empty."""
+    r"""Raise an error if the record is empty."""
 
 
 class NotAComparableRecordError(Exception):
-    r"""Generates an error if it is not possible to compare the values
-    in the record."""
+    r"""Raise an error if it is not possible to compare the values in
+    the record."""
