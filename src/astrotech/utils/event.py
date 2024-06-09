@@ -22,13 +22,13 @@ class EventHandler(EventHandler_):
     ...     print("Hello!")
     ...
     >>> handler = EventHandler(hello_handler)
-    >>> print(repr(handler))  
+    >>> print(repr(handler))
     EventHandler(
       (handler): <function hello_handler at 0x...>
       (handler_args): ()
       (handler_kwargs): {}
     )
-    >>> print(str(handler))  
+    >>> print(str(handler))
     EventHandler(
       (handler): <function hello_handler at 0x...>
     )
@@ -57,14 +57,14 @@ class ConditionalEventHandler(ConditionalEventHandler_):
     ...     print("Hello!")
     ...
     >>> handler = ConditionalEventHandler(hello_handler, PeriodicCondition(freq=3))
-    >>> print(repr(handler))  
+    >>> print(repr(handler))
     ConditionalEventHandler(
       (handler): <function hello_handler at 0x...>
       (handler_args): ()
       (handler_kwargs): {}
       (condition): PeriodicCondition(freq=3, step=0)
     )
-    >>> print(str(handler))  
+    >>> print(str(handler))
     ConditionalEventHandler(
       (handler): <function hello_handler at 0x...>
       (condition): PeriodicCondition(freq=3, step=0)
