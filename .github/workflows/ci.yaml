@@ -14,9 +14,9 @@ jobs:
     secrets: inherit
   cyclic-imports:
     uses: ./.github/workflows/cyclic-imports.yaml
-#  doctest:
-#    uses: ./.github/workflows/doctest.yaml
-#    secrets: inherit
+  doctest:
+    uses: ./.github/workflows/doctest.yaml
+    secrets: inherit
   format:
     uses: ./.github/workflows/format.yaml
   pre-commit:
