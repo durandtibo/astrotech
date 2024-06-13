@@ -23,6 +23,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development :: Libraries",
 ]
@@ -37,6 +38,7 @@ batchtensor = ">=0.0.2,<0.1"
 coola = ">=0.6.2,<1.0"
 iden = ">=0.0.4,<0.1"
 minevent = ">=0.1,<1.0"
+minrecord = ">=0.0.1,<1.0"
 objectory = ">=0.1,<1.0"
 python = ">=3.9,<3.13"
 torch = [
