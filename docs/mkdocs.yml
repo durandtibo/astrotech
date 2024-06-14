@@ -25,6 +25,7 @@ nav:
   - Home: index.md
   - get_started.md
   - Reference:
+      - engine: refs/engine.md
       - utils: refs/utils.md
   - GitHub: https://github.com/durandtibo/astrotech
 
