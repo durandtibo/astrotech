@@ -35,19 +35,19 @@ def test_asset_manager_len_2_assets() -> None:
 
 
 def test_asset_manager_repr() -> None:
-    assert repr(AssetManager({"name": 5})).startswith("AssetManager(")
+    assert repr(AssetManager({"name": 5})) == "AssetManager(num_assets=1)"
 
 
 def test_asset_manager_repr_empty() -> None:
-    assert repr(AssetManager()) == "AssetManager()"
+    assert repr(AssetManager()) == "AssetManager(num_assets=0)"
 
 
 def test_asset_manager_str() -> None:
-    assert str(AssetManager({"name": 5})) == "AssetManager(num_assets=1)"
+    assert str(AssetManager({"name": 5})).startswith("AssetManager(")
 
 
 def test_asset_manager_str_empty() -> None:
-    assert str(AssetManager()) == "AssetManager(num_assets=0)"
+    assert str(AssetManager()) == "AssetManager()"
 
 
 @pytest.mark.parametrize("name", NAMES)
