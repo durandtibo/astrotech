@@ -26,12 +26,12 @@ class BaseEngineState(ABC, metaclass=AbstractFactory):
     >>> state = EngineState()
     >>> state
     EngineState(
-      (modules): AssetManager(num_assets=0)
-      (records): RecordManager()
-      (random_seed): 9984043075503325450
-      (max_epochs): 1
       (epoch): -1
       (iteration): -1
+      (max_epochs): 1
+      (modules): AssetManager(num_assets=0)
+      (random_seed): 9984043075503325450
+      (records): RecordManager()
     )
     >>> state.epoch  # 0-based, the first epoch is 0. -1 means the training has not started
     >>> state.iteration  # 0-based, the first iteration is 0. -1 means the training has not started
@@ -237,16 +237,16 @@ class BaseEngineState(ABC, metaclass=AbstractFactory):
         >>> from minrecord import MinScalarRecord
         >>> state.add_record(MinScalarRecord("loss"))
         >>> state.get_record("loss")
-        MinScalarRecord(name=loss, max_size=10, record=())
+        MinScalarRecord(name=loss, max_size=10, size=0)
         >>> state.get_record("new_record")
-        GenericRecord(name=new_record, max_size=10, record=())
+        Record(name=new_record, max_size=10, size=0)
 
         ```
         """
 
     @abstractmethod
     def get_records(self) -> dict[str, BaseRecord]:
-        r"""Get all records store in the state.
+        r"""Get all the records store in the state.
 
         Returns:
             The records with their keys.
@@ -260,7 +260,7 @@ class BaseEngineState(ABC, metaclass=AbstractFactory):
         >>> from minrecord import MinScalarRecord
         >>> state.add_record(MinScalarRecord("loss"))
         >>> state.get_records()
-        {'loss': MinScalarRecord(name=loss, max_size=10, record=())}
+        {'loss': MinScalarRecord(name=loss, max_size=10, size=0)}
 
         ```
         """
