@@ -6,7 +6,7 @@ __all__ = ["EngineState"]
 
 from typing import Any
 
-from coola.utils import str_indent, str_mapping
+from coola.utils import repr_indent, repr_mapping, str_indent, str_mapping
 from minrecord import BaseRecord, RecordManager
 
 from astrotech.engine.state.base import BaseEngineState
@@ -57,6 +57,21 @@ class EngineState(BaseEngineState):
         self._modules = AssetManager()
 
     def __repr__(self) -> str:
+        args = repr_indent(
+            repr_mapping(
+                {
+                    "epoch": self._epoch,
+                    "iteration": self._iteration,
+                    "max_epochs": self._max_epochs,
+                    "modules": self._modules,
+                    "random_seed": self._random_seed,
+                    "records": self._records,
+                }
+            )
+        )
+        return f"{self.__class__.__qualname__}(\n  {args}\n)"
+
+    def __str__(self) -> str:
         args = str_indent(
             str_mapping(
                 {

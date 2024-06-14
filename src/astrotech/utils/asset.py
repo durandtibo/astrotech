@@ -32,12 +32,10 @@ class AssetManager:
     >>> from astrotech.utils.asset import AssetManager
     >>> manager = AssetManager()
     >>> manager
-    AssetManager()
+    AssetManager(num_assets=0)
     >>> manager.add_asset("mean", 5)
     >>> manager
-    AssetManager(
-      (mean): <class 'int'> 5
-    )
+    AssetManager(num_assets=1)
     >>> manager.get_asset("mean")
     5
 
@@ -51,12 +49,12 @@ class AssetManager:
         return len(self._assets)
 
     def __repr__(self) -> str:
+        return f"{self.__class__.__qualname__}(num_assets={len(self._assets):,})"
+
+    def __str__(self) -> str:
         assets = {name: summary(asset) for name, asset in self._assets.items()}
         args = f"\n  {str_indent(str_mapping(assets))}\n" if assets else ""
         return f"{self.__class__.__qualname__}({args})"
-
-    def __str__(self) -> str:
-        return f"{self.__class__.__qualname__}(num_assets={len(self._assets):,})"
 
     def add_asset(self, name: str, asset: Any, replace_ok: bool = False) -> None:
         r"""Add an asset to the asset manager.
@@ -102,11 +100,11 @@ class AssetManager:
         >>> manager = AssetManager({"name": 5})
         >>> cloned = manager.clone()
         >>> manager.add_asset("name", 7, replace_ok=True)
-        >>> manager
+        >>> print(manager)
         AssetManager(
           (name): <class 'int'>  7
         )
-        >>> cloned
+        >>> print(cloned)
         AssetManager(
           (name): <class 'int'>  5
         )

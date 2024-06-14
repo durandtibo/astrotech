@@ -16,8 +16,17 @@ NAMES = ("name1", "name2")
 #################################
 
 
+def test_engine_state_repr() -> None:
+    assert repr(EngineState()).startswith("EngineState(")
+
+
 def test_engine_state_str() -> None:
     assert str(EngineState()).startswith("EngineState(")
+
+
+def test_engine_state_repr_vs_str() -> None:
+    state = EngineState()
+    assert repr(state) != str(state)
 
 
 def test_engine_state_default_values() -> None:
