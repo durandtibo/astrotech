@@ -7,10 +7,10 @@ __all__ = ["EngineState"]
 from typing import Any
 
 from coola.utils import str_indent, str_mapping
-from gravitorch.utils.asset import AssetManager
 from minrecord import BaseRecord, RecordManager
 
 from astrotech.engine.state.base import BaseEngineState
+from astrotech.utils.asset import AssetManager
 
 
 class EngineState(BaseEngineState):
@@ -30,12 +30,12 @@ class EngineState(BaseEngineState):
     >>> state = EngineState()
     >>> state
     EngineState(
-      (modules): AssetManager(num_assets=0)
-      (records): RecordManager()
-      (random_seed): 9984043075503325450
-      (max_epochs): 1
       (epoch): -1
       (iteration): -1
+      (max_epochs): 1
+      (modules): AssetManager(num_assets=0)
+      (random_seed): 9984043075503325450
+      (records): RecordManager()
     )
 
     ```
