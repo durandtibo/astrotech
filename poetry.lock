@@ -1955,4 +1955,4 @@ all = ["numpy"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "5f4f35092ad9b078a43c643c41a1de4bb2f4533b81ad4a8ff4dfe909347e2364"
+content-hash = "00743bd8231d32a2288bb996e5b27f667f68f9d65b175e84ff0975af8764b29c"
