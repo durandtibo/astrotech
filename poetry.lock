@@ -562,18 +562,21 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "karbonn"
-version = "0.0.1a2"
+version = "0.0.1"
 description = "A library of PyTorch modules"
 optional = false
 python-versions = "<3.13,>=3.9"
 files = [
-    {file = "karbonn-0.0.1a2-py3-none-any.whl", hash = "sha256:f34b4175d37d6e731c768ddcb437f486a84ef95667200151bb536d04423f415b"},
-    {file = "karbonn-0.0.1a2.tar.gz", hash = "sha256:e3adb4117c981e59e85c2408d9336e16bf27a02cbede9917c5379c7cef2a501f"},
+    {file = "karbonn-0.0.1-py3-none-any.whl", hash = "sha256:9a82963436a3a39556bcb0640167f4955f8890da37d83f28f1c88594c63ec392"},
+    {file = "karbonn-0.0.1.tar.gz", hash = "sha256:c4f0e7072dca210e99bf4f6b660d90c17fe0251ea6e5db7d10484380e4057154"},
 ]
 
 [package.dependencies]
 coola = ">=0.6,<1.0"
-torch = ">=1.12,<3.0"
+torch = [
+    {version = ">=1.12,<2.3", markers = "sys_platform == \"darwin\" and platform_machine != \"arm64\""},
+    {version = ">=1.12,<3.0", markers = "sys_platform != \"darwin\" or platform_machine == \"arm64\""},
+]
 
 [package.extras]
 all = ["numpy (>=1.22,<2.0)", "objectory (>=0.1,<1.0)", "tabulate (>=0.9,<0.10)"]
@@ -1955,4 +1958,4 @@ all = ["numpy"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "00743bd8231d32a2288bb996e5b27f667f68f9d65b175e84ff0975af8764b29c"
+content-hash = "b74d75f083791a717403ca951882e19be95993908921f30dc9544b5358f6c6d5"
