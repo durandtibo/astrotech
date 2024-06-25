@@ -18,6 +18,14 @@ SIZES = (1, 2)
 ##########################
 
 
+def test_loss_repr() -> None:
+    assert repr(Loss(MSELoss())).startswith("Loss(")
+
+
+def test_loss_str() -> None:
+    assert str(Loss(MSELoss())).startswith("Loss(")
+
+
 @pytest.mark.parametrize(
     ("criterion", "criterion_cls"),
     [
@@ -109,4 +117,18 @@ def test_loss_mse_custom_keys(device: str, prediction_key: str, target_key: str)
             {target_key: torch.ones(2, 3, device=device)},
         ),
         {ct.LOSS: torch.tensor(0.0, device=device)},
+    )
+
+
+@pytest.mark.parametrize("device", get_available_devices())
+def test_loss_mse_weight_2(device: str) -> None:
+    device = torch.device(device)
+    criterion = Loss(MSELoss(), weight=2).to(device=device)
+    assert criterion._weight == 2.0
+    assert objects_are_equal(
+        criterion(
+            {ct.PREDICTION: torch.zeros(2, 3, device=device)},
+            {ct.TARGET: torch.ones(2, 3, device=device)},
+        ),
+        {ct.LOSS: torch.tensor(2.0, device=device)},
     )

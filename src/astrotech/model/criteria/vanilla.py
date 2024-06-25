@@ -7,6 +7,7 @@ __all__ = ["Loss"]
 
 from typing import TYPE_CHECKING
 
+from coola.utils import str_mapping
 from karbonn.utils import setup_module
 from torch.nn import Module
 
@@ -45,12 +46,18 @@ class Loss(Module):
     >>> criterion = Loss(criterion=torch.nn.MSELoss())
     >>> criterion
     Loss(
+      (prediction): prediction
+      (target): target
+      (weight): 1.0
       (criterion): MSELoss()
     )
     >>> # Initialization with a config
     >>> criterion = Loss(criterion={"_target_": "torch.nn.MSELoss"})
     >>> criterion
     Loss(
+      (prediction): prediction
+      (target): target
+      (weight): 1.0
       (criterion): MSELoss()
     )
     >>> # Customize keys.
@@ -61,6 +68,9 @@ class Loss(Module):
     ... )
     >>> criterion
     Loss(
+      (prediction): my_prediction
+      (target): my_target
+      (weight): 1.0
       (criterion): MSELoss()
     )
     >>> loss = criterion(
@@ -77,11 +87,22 @@ class Loss(Module):
         criterion: Module | dict,
         prediction_key: str = ct.PREDICTION,
         target_key: str = ct.TARGET,
+        weight: float = 1.0,
     ) -> None:
         super().__init__()
         self.criterion = setup_module(criterion)
         self._prediction_key = prediction_key
         self._target_key = target_key
+        self._weight = float(weight)
+
+    def extra_repr(self) -> str:
+        return str_mapping(
+            {
+                "prediction": self._prediction_key,
+                "target": self._target_key,
+                "weight": self._weight,
+            }
+        )
 
     def forward(self, net_out: dict, batch: dict) -> dict[str, Tensor]:
         r"""Return the loss value given the network output and the batch.
@@ -93,4 +114,7 @@ class Loss(Module):
         Returns:
             A dict with the loss value.
         """
-        return {ct.LOSS: self.criterion(net_out[self._prediction_key], batch[self._target_key])}
+        return {
+            ct.LOSS: self._weight
+            * self.criterion(net_out[self._prediction_key], batch[self._target_key])
+        }
