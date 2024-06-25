@@ -48,7 +48,11 @@ torch = [
 ]
 
 # Optional dependencies
-numpy = { version = ">=1.21,<3.0", optional = true }
+numpy = [
+    # numpy 2.0 is supported starting torch 2.3.0 but there is no binaries for mac intel
+    { version = ">=1.23,<2.0", markers="sys_platform == 'darwin' and platform_machine != 'arm64'", optional = true },
+    { version = ">=1.23,<3.0", optional = true }
+]
 
 [tool.poetry.extras]
 all = ["numpy"]
@@ -65,6 +69,7 @@ mkdocstrings = { extras = ["python"], version = "^0.25" }
 black = ">=24.4"
 coverage = { extras = ["toml"], version = "^7.5" }
 docformatter = { extras = ["tomli"], version = "^1.7" }
+feu = ">=0.0.6,<1.0"
 pre-commit = "^3.7"
 pygments = "^2.18"
 pytest = "^8.2"
