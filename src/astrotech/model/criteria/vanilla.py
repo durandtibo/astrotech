@@ -33,8 +33,9 @@ class Loss(Module):
             configuration.
         prediction_key: The key that indicates the prediction in
             ``net_out``.
-        target_key (str): The key that indicates the target in
+        target_key: The key that indicates the target in
             ``batch``.
+        weight: The weight to apply to the loss value.
 
     Example usage:
 
