@@ -2,7 +2,7 @@ r"""Contain utility functions to manage events."""
 
 from __future__ import annotations
 
-__all__ = ["EventHandler", "ConditionalEventHandler"]
+__all__ = ["ConditionalEventHandler", "EventHandler"]
 
 from coola.utils import str_indent, str_mapping
 from minevent import ConditionalEventHandler as ConditionalEventHandler_
