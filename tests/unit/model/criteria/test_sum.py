@@ -4,6 +4,7 @@ import pytest
 import torch
 from coola import objects_are_equal
 from coola.utils.tensor import get_available_devices
+from objectory import OBJECT_TARGET
 
 from astrotech import constants as ct
 from astrotech.model.criteria import Loss, SumLoss
@@ -28,8 +29,16 @@ def test_sum_loss_str() -> None:
     ).startswith("SumLoss(")
 
 
-def test_sum_loss_init() -> None:
+def test_sum_loss_init_module() -> None:
     criterion = SumLoss({"mse": torch.nn.MSELoss(), "l1": torch.nn.L1Loss()})
+    assert isinstance(criterion["mse"], torch.nn.MSELoss)
+    assert isinstance(criterion["l1"], torch.nn.L1Loss)
+
+
+def test_sum_loss_init_config() -> None:
+    criterion = SumLoss(
+        {"mse": {OBJECT_TARGET: "torch.nn.MSELoss"}, "l1": {OBJECT_TARGET: "torch.nn.L1Loss"}}
+    )
     assert isinstance(criterion["mse"], torch.nn.MSELoss)
     assert isinstance(criterion["l1"], torch.nn.L1Loss)
 

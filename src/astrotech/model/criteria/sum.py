@@ -1,3 +1,6 @@
+r"""Contain a criterion that computes the sum of multiple loss
+functions."""
+
 from __future__ import annotations
 
 __all__ = ["SumLoss"]
@@ -58,6 +61,15 @@ class SumLoss(ModuleDict):
         super().__init__({key: setup_module(criterion) for key, criterion in criteria.items()})
 
     def forward(self, net_out: dict, batch: dict) -> dict[str, Tensor]:
+        r"""Return the loss value given the network output and the batch.
+
+        Args:
+            net_out: The network output which contains the prediction.
+            batch: The batch which contains the target.
+
+        Returns:
+            A dict with the loss value.
+        """
         out = {ct.LOSS: 0.0}
         for key, criterion in self.items():
             out[f"{ct.LOSS}_{key}"] = criterion(net_out, batch)[ct.LOSS]
