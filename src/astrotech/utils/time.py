@@ -46,7 +46,7 @@ def sync_perf_counter() -> float:
 
 
 @contextmanager
-def timeblock(message: str = f"Total time: {time}") -> Generator[None, None, None]:
+def timeblock(message: str = "Total time: {time}") -> Generator[None, None, None]:
     r"""Implement a context manager to measure the execution time of a
     block of code.
 
@@ -67,7 +67,7 @@ def timeblock(message: str = f"Total time: {time}") -> Generator[None, None, Non
 
     ```
     """
-    if f"{time}" not in message:
+    if "{time}" not in message:
         msg = f"{{time}} is missing in the message (received: {message})"
         raise RuntimeError(msg)
     start_time = sync_perf_counter()
