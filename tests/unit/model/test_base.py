@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+from typing import TYPE_CHECKING
 
 import torch
 from objectory import OBJECT_TARGET
@@ -9,7 +10,6 @@ from torch.nn import Linear
 from astrotech.model import Model, is_model_config, setup_model
 from astrotech.model.criteria import Loss
 from astrotech.model.network import Network
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     import pytest
