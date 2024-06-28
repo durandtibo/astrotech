@@ -10,7 +10,7 @@ from torch.nn import L1Loss, Module, MSELoss
 from astrotech import constants as ct
 from astrotech.model.criteria import Loss, ModeLoss
 
-SIZES = (1, 2)
+SIZES = (1, 2, 3)
 
 
 ##############################

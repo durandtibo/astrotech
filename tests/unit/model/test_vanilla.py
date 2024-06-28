@@ -3,10 +3,11 @@ from __future__ import annotations
 import pytest
 import torch
 from coola.utils.tensor import get_available_devices
+from objectory import OBJECT_TARGET
 
 from astrotech import constants as ct
 from astrotech.model import Model
-from astrotech.model.criteria import Loss
+from astrotech.model.criteria import Loss, NoLoss
 from astrotech.model.network import Network
 
 SIZES = (1, 2, 3)
@@ -27,6 +28,48 @@ def model() -> Model:
 ###########################
 #     Tests for Model     #
 ###########################
+
+
+def test_model_init_module(model: Model) -> None:
+    model = Model(
+        network=Network(
+            module=torch.nn.Linear(in_features=4, out_features=6),
+            input_keys=["input"],
+            output_keys=["prediction"],
+        ),
+        criterion=Loss(criterion=torch.nn.MSELoss()),
+    )
+    assert isinstance(model.network, Network)
+    assert isinstance(model.criterion, Loss)
+
+
+def test_model_init_config(model: Model) -> None:
+    model = Model(
+        network={
+            OBJECT_TARGET: "astrotech.model.network.Network",
+            "module": {OBJECT_TARGET: "torch.nn.Linear", "in_features": 4, "out_features": 6},
+            "input_keys": ["input"],
+            "output_keys": ["prediction"],
+        },
+        criterion={
+            OBJECT_TARGET: "astrotech.model.criteria.Loss",
+            "criterion": {OBJECT_TARGET: "torch.nn.MSELoss"},
+        },
+    )
+    assert isinstance(model.network, Network)
+    assert isinstance(model.criterion, Loss)
+
+
+def test_model_init_no_criterion(model: Model) -> None:
+    model = Model(
+        network=Network(
+            module=torch.nn.Linear(in_features=4, out_features=6),
+            input_keys=["input"],
+            output_keys=["prediction"],
+        ),
+    )
+    assert isinstance(model.network, Network)
+    assert isinstance(model.criterion, NoLoss)
 
 
 def test_model_repr(model: Model) -> None:

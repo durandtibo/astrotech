@@ -9,7 +9,7 @@ from objectory import OBJECT_TARGET
 from astrotech import constants as ct
 from astrotech.model.criteria import Loss, SumLoss
 
-SIZES = (1, 2)
+SIZES = (1, 2, 3)
 
 
 #############################

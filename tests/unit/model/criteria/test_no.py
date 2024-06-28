@@ -6,7 +6,7 @@ from coola.utils.tensor import get_available_devices
 
 from astrotech.model.criteria import NoLoss
 
-SIZES = (1, 2)
+SIZES = (1, 2, 3)
 
 
 ############################
