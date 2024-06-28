@@ -31,28 +31,34 @@ class Network(Module):
             that the order in the outputs of the forward function of
             the wrapped module.
 
-    ```pycon.
+    ```pycon
 
     >>> import torch
     >>> from astrotech.model.network import Network
-    >>> network = Network(module=torch.nn.Linear(4, 6), input_keys=['input'], output_keys=['output'])
+    >>> network = Network(
+    ...     module=torch.nn.Linear(4, 6), input_keys=["input"], output_keys=["output"]
+    ... )
     >>> network
     Network(
       (input_keys): ('input',)
       (output_keys): ('output',)
       (module): Linear(in_features=4, out_features=6, bias=True)
     )
-    >>> out = network({'input': torch.randn(2, 4)})
+    >>> out = network({"input": torch.randn(2, 4)})
     >>> out
     {'output': tensor([[...]], grad_fn=<AddmmBackward0>)}
-    >>> network = Network(module=torch.nn.Bilinear(4, 5, 6), input_keys=['input1', 'input2'], output_keys=['output'])
+    >>> network = Network(
+    ...     module=torch.nn.Bilinear(4, 5, 6),
+    ...     input_keys=["input1", "input2"],
+    ...     output_keys=["output"],
+    ... )
     >>> network
     Network(
       (input_keys): ('input1', 'input2')
       (output_keys): ('output',)
       (module): Bilinear(in1_features=4, in2_features=5, out_features=6, bias=True)
     )
-    >>> out = network({'input1': torch.randn(2, 4), 'input2': torch.randn(2, 5)})
+    >>> out = network({"input1": torch.randn(2, 4), "input2": torch.randn(2, 5)})
     >>> out
     {'output': tensor([[...]], grad_fn=<AddBackward0>)}
 
