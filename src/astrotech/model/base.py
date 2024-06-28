@@ -24,6 +24,40 @@ class BaseModel(Module, metaclass=AbstractFactory):
     should return a dictionary. If you want to train the model, the
     output dictionary should contain the key ``'loss'`` with the loss
     value.
+
+    Example usage:
+
+    ```pycon
+
+    >>> import torch
+    >>> from astrotech.model import Model
+    >>> from astrotech.model.network import Network
+    >>> from astrotech.model.criteria import Loss
+    >>> model = Model(
+    ...     network=Network(
+    ...         module=torch.nn.Linear(4, 6), input_keys=["input"], output_keys=["prediction"]
+    ...     ),
+    ...     criterion=Loss(criterion=torch.nn.MSELoss()),
+    ... )
+    >>> model
+    Model(
+      (network): Network(
+        (input_keys): ('input',)
+        (output_keys): ('prediction',)
+        (module): Linear(in_features=4, out_features=6, bias=True)
+      )
+      (criterion): Loss(
+        (prediction): prediction
+        (target): target
+        (weight): 1.0
+        (criterion): MSELoss()
+      )
+    )
+    >>> out = model({"input": torch.randn(2, 4), "target": torch.randn(2, 6)})
+    >>> out
+    {'prediction': tensor([[...]], grad_fn=<AddmmBackward0>), 'loss': tensor(..., grad_fn=<MulBackward0>)}
+
+    ```
     """
 
     @abstractmethod
@@ -35,7 +69,7 @@ class BaseModel(Module, metaclass=AbstractFactory):
 
         Returns:
             The model output. The dictionary should contain the key
-            ``'loss'`` with the loss value to train the model.
+                ``'loss'`` with the loss value to train the model.
         """
 
 
@@ -89,8 +123,32 @@ def setup_model(
     ```pycon
 
     >>> from astrotech.model import setup_model
-    >>> setup_model({"_target_": "astrotech.model.Model"})
-    Model()
+    >>> setup_model({
+    ...     "_target_": "astrotech.model.Model",
+    ...     'network': {
+    ...         "_target_": "astrotech.model.network.Network",
+    ...         "module": {"_target_": "torch.nn.Linear", "in_features": 4, "out_features": 6},
+    ...         "input_keys": ["input"],
+    ...         "output_keys": ["prediction"],
+    ...     },
+    ...     'criterion': {
+    ...         "_target_": "astrotech.model.criteria.Loss",
+    ...         "criterion": {"_target_": "torch.nn.MSELoss"},
+    ...     },
+    ... })
+    Model(
+      (network): Network(
+        (input_keys): ('input',)
+        (output_keys): ('prediction',)
+        (module): Linear(in_features=4, out_features=6, bias=True)
+      )
+      (criterion): Loss(
+        (prediction): prediction
+        (target): target
+        (weight): 1.0
+        (criterion): MSELoss()
+      )
+    )
 
     ```
     """
