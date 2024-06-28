@@ -66,7 +66,7 @@ def test_network_forward_linear(network: Network, device: str, batch_size: int, 
     network.train(mode)
     output = network({"input": torch.ones(batch_size, 4, device=device)})
     assert len(output) == 1
-    assert output["output"].size() == (batch_size, 6)
+    assert output["output"].shape == (batch_size, 6)
 
 
 @pytest.mark.parametrize("device", get_available_devices())
@@ -87,7 +87,7 @@ def test_network_forward_bilinear(device: str, batch_size: int, mode: bool) -> N
         }
     )
     assert len(output) == 1
-    assert output["output"].size() == (batch_size, 6)
+    assert output["output"].shape == (batch_size, 6)
 
 
 @pytest.mark.parametrize("device", get_available_devices())
@@ -103,5 +103,5 @@ def test_network_forward_gru(device: str, batch_size: int, mode: bool) -> None:
     network.train(mode)
     output = network({"input": torch.ones(batch_size, 8, 4, device=device)})
     assert len(output) == 2
-    assert output["output"].size() == (batch_size, 8, 6)
-    assert output["h_n"].size() == (1, batch_size, 6)
+    assert output["output"].shape == (batch_size, 8, 6)
+    assert output["h_n"].shape == (1, batch_size, 6)
