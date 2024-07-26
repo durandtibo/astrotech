@@ -123,19 +123,25 @@ def setup_model(
     ```pycon
 
     >>> from astrotech.model import setup_model
-    >>> setup_model({
-    ...     "_target_": "astrotech.model.Model",
-    ...     'network': {
-    ...         "_target_": "astrotech.model.network.Network",
-    ...         "module": {"_target_": "torch.nn.Linear", "in_features": 4, "out_features": 6},
-    ...         "input_keys": ["input"],
-    ...         "output_keys": ["prediction"],
-    ...     },
-    ...     'criterion': {
-    ...         "_target_": "astrotech.model.criteria.Loss",
-    ...         "criterion": {"_target_": "torch.nn.MSELoss"},
-    ...     },
-    ... })
+    >>> setup_model(
+    ...     {
+    ...         "_target_": "astrotech.model.Model",
+    ...         "network": {
+    ...             "_target_": "astrotech.model.network.Network",
+    ...             "module": {
+    ...                 "_target_": "torch.nn.Linear",
+    ...                 "in_features": 4,
+    ...                 "out_features": 6,
+    ...             },
+    ...             "input_keys": ["input"],
+    ...             "output_keys": ["prediction"],
+    ...         },
+    ...         "criterion": {
+    ...             "_target_": "astrotech.model.criteria.Loss",
+    ...             "criterion": {"_target_": "torch.nn.MSELoss"},
+    ...         },
+    ...     }
+    ... )
     Model(
       (network): Network(
         (input_keys): ('input',)
