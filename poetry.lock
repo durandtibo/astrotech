@@ -240,13 +240,13 @@ files = [
 
 [[package]]
 name = "coola"
-version = "0.7.4"
-description = "A library to check if two complex/nested objects are equal or not"
+version = "0.8.2"
+description = "Library to check equality between two complex/nested objects"
 optional = false
 python-versions = "<3.13,>=3.9"
 files = [
-    {file = "coola-0.7.4-py3-none-any.whl", hash = "sha256:5bff8d3ccc4229b5862a39f1ee0c130702b9411ba79956ba8592aac599d5bd45"},
-    {file = "coola-0.7.4.tar.gz", hash = "sha256:5a8d47ff21ab9d7cc602ad2f21784e08a3afdc004683a2e6d4e1d20536c57d1e"},
+    {file = "coola-0.8.2-py3-none-any.whl", hash = "sha256:66c3bdd2d6ba3eaf6e1ebbad5471d170c15391c20a84c674ea98747fc7fad73b"},
+    {file = "coola-0.8.2.tar.gz", hash = "sha256:e58dc606f1adfdadfbea5aaaedc040e16760bdde3f1451328b725e3e0efae04d"},
 ]
 
 [package.extras]
@@ -811,13 +811,13 @@ pyyaml = ">=5.1"
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.30"
+version = "9.5.31"
 description = "Documentation that simply works"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mkdocs_material-9.5.30-py3-none-any.whl", hash = "sha256:fc070689c5250a180e9b9d79d8491ef9a3a7acb240db0728728d6c31eeb131d4"},
-    {file = "mkdocs_material-9.5.30.tar.gz", hash = "sha256:3fd417dd42d679e3ba08b9e2d72cd8b8af142cc4a3969676ad6b00993dd182ec"},
+    {file = "mkdocs_material-9.5.31-py3-none-any.whl", hash = "sha256:1b1f49066fdb3824c1e96d6bacd2d4375de4ac74580b47e79ff44c4d835c5fcb"},
+    {file = "mkdocs_material-9.5.31.tar.gz", hash = "sha256:31833ec664772669f5856f4f276bf3fdf0e642a445e64491eda459249c3a1ca8"},
 ]
 
 [package.dependencies]
