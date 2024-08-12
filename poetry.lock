@@ -240,13 +240,13 @@ files = [
 
 [[package]]
 name = "coola"
-version = "0.8.2"
+version = "0.8.3"
 description = "Library to check equality between two complex/nested objects"
 optional = false
 python-versions = "<3.13,>=3.9"
 files = [
-    {file = "coola-0.8.2-py3-none-any.whl", hash = "sha256:66c3bdd2d6ba3eaf6e1ebbad5471d170c15391c20a84c674ea98747fc7fad73b"},
-    {file = "coola-0.8.2.tar.gz", hash = "sha256:e58dc606f1adfdadfbea5aaaedc040e16760bdde3f1451328b725e3e0efae04d"},
+    {file = "coola-0.8.3-py3-none-any.whl", hash = "sha256:7b901a82a47535732a5fb7d889facd89fd31f15caf2167c6be858a481e3dd754"},
+    {file = "coola-0.8.3.tar.gz", hash = "sha256:209b83549868a1071f1b0d843a21eca4c2384196aa84646e4e9a85ddb1b7ea86"},
 ]
 
 [package.extras]
@@ -752,18 +752,20 @@ coola = ">=0.1,<1.0"
 
 [[package]]
 name = "minrecord"
-version = "0.0.1"
+version = "0.0.2"
 description = "Minimalist library to record values in a ML workflow"
 optional = false
 python-versions = "<3.13,>=3.9"
 files = [
-    {file = "minrecord-0.0.1-py3-none-any.whl", hash = "sha256:52585238b3708dedd799e63621e07937c903e7c8e43e4827db0752c603991906"},
-    {file = "minrecord-0.0.1.tar.gz", hash = "sha256:9135aa705016bc0ba5be024f9c090efcb236af1ecdadff7c3566e5d3eb5a5e53"},
+    {file = "minrecord-0.0.2-py3-none-any.whl", hash = "sha256:781fc00e46f0cd076ec1784f929b601a59b176789cffbedae5eea7df6a129c9e"},
+    {file = "minrecord-0.0.2.tar.gz", hash = "sha256:8ca4ae6b23769f988fbc25d2254a9351a67da49ff20e2c484d23df00e9eff41d"},
 ]
 
 [package.dependencies]
-coola = ">=0.7,<1.0"
-objectory = ">=0.1,<1.0"
+coola = ">=0.7.2,<1.0"
+
+[package.extras]
+all = ["objectory (>=0.1,<1.0)"]
 
 [[package]]
 name = "mkdocs"
