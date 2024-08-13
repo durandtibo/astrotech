@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 
 @contextmanager
-def disable_logging(level: int | str = logging.CRITICAL) -> Generator[None, None, None]:
+def disable_logging(level: int | str = logging.CRITICAL) -> Generator[None]:
     r"""Context manager to temporarily disable the logging.
 
     All logging calls of severity ``level`` and below will be

@@ -46,7 +46,7 @@ def sync_perf_counter() -> float:
 
 
 @contextmanager
-def timeblock(message: str = "Total time: {time}") -> Generator[None, None, None]:
+def timeblock(message: str = "Total time: {time}") -> Generator[None]:
     r"""Implement a context manager to measure the execution time of a
     block of code.
 
