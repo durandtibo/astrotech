@@ -35,11 +35,11 @@ packages = [
 [tool.poetry.dependencies]
 # Core dependencies
 batchtensor = ">=0.0.2,<1.0"
-coola = ">=0.7.0,<1.0"
+coola = ">=0.8.2,<1.0"
 iden = ">=0.0.4,<1.0"
-karbonn = ">=0.0.1,<1.0"
+karbonn = ">=0.0.2,<1.0"
 minevent = ">=0.3,<1.0"
-minrecord = ">=0.0.1,<1.0"
+minrecord = ">=0.0.2,<1.0"
 objectory = ">=0.1,<1.0"
 python = ">=3.9,<3.13"
 torch = [
@@ -66,7 +66,7 @@ mkdocs-material = "^9.5"
 mkdocstrings = { extras = ["python"], version = "^0.25" }
 
 [tool.poetry.group.dev.dependencies]
-black = ">=24.4"
+black = ">=24.8"
 coverage = { extras = ["toml"], version = "^7.6" }
 docformatter = { extras = ["tomli"], version = "^1.7" }
 feu = ">=0.0.6,<1.0"
