@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 SIZES = (1, 2, 3)
 
 
-@pytest.fixture()
+@pytest.fixture
 def network() -> Network:
     return Network(
         module=torch.nn.Linear(in_features=4, out_features=6),
