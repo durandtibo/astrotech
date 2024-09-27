@@ -32,9 +32,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install batchtensor
-        run: |
-          poetry run pip install batchtensor==${{ matrix.batchtensor-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'batchtensor'
+          package-version: ${{ matrix.batchtensor-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |
@@ -74,9 +77,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install coola
-        run: |
-          poetry run pip install coola==${{ matrix.coola-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'coola'
+          package-version: ${{ matrix.coola-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |
@@ -116,9 +122,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install iden
-        run: |
-          poetry run pip install iden==${{ matrix.iden-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'iden'
+          package-version: ${{ matrix.iden-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |
@@ -158,9 +167,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install karbonn
-        run: |
-          poetry run pip install karbonn==${{ matrix.karbonn-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'karbonn'
+          package-version: ${{ matrix.karbonn-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |
@@ -200,9 +212,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install minevent
-        run: |
-          poetry run pip install minevent==${{ matrix.minevent-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'minevent'
+          package-version: ${{ matrix.minevent-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |
@@ -242,9 +257,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install minrecord
-        run: |
-          poetry run pip install minrecord==${{ matrix.minrecord-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'minrecord'
+          package-version: ${{ matrix.minrecord-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |
@@ -284,9 +302,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install objectory
-        run: |
-          poetry run pip install objectory==${{ matrix.objectory-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'objectory'
+          package-version: ${{ matrix.objectory-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |
@@ -307,13 +328,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        torch-version: [ 2.4.0, 2.3.1, 2.2.2, 2.1.2, 2.0.1 ]
-        exclude:
-          # python 3.12
-          - torch-version: 2.0.1
-            python-version: 3.12
-          - torch-version: 2.1.2
-            python-version: 3.12
+        torch-version: [ 2.4.1, 2.3.1, 2.2.2, 2.1.2, 2.0.1 ]
 
     steps:
       - name: Checkout
@@ -332,9 +347,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install torch
-        run: |
-          poetry run pip install torch==${{ matrix.torch-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'torch'
+          package-version: ${{ matrix.torch-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |
@@ -360,15 +378,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        numpy-version: [ 2.0.1, 1.26.4, 1.25.2, 1.24.3, 1.23.5 ]
-        exclude:
-          # python 3.12
-          - numpy-version: 1.23.5
-            python-version: '3.12'
-          - numpy-version: 1.24.3
-            python-version: '3.12'
-          - numpy-version: 1.25.2
-            python-version: '3.12'
+        numpy-version: [ 2.1.1, 2.0.1, 1.26.4, 1.25.2, 1.24.3, 1.23.5 ]
 
     steps:
       - name: Checkout
@@ -387,9 +397,12 @@ jobs:
           poetry run make config-poetry
           poetry run make install
 
-      - name: Install numpy
-        run: |
-          poetry run pip install numpy==${{ matrix.numpy-version }}
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.2.2
+        with:
+          package-name: 'numpy'
+          package-version: ${{ matrix.numpy-version }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Show installed packages
         run: |

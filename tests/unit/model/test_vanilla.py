@@ -13,7 +13,7 @@ from astrotech.model.network import Network
 SIZES = (1, 2, 3)
 
 
-@pytest.fixture()
+@pytest.fixture
 def model() -> Model:
     return Model(
         network=Network(
