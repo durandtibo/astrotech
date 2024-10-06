@@ -27,6 +27,10 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
 
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
+
       - name: Install packages
         run: |
           poetry run make config-poetry
@@ -71,6 +75,10 @@ jobs:
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
 
       - name: Install packages
         run: |
@@ -117,6 +125,10 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
 
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
+
       - name: Install packages
         run: |
           poetry run make config-poetry
@@ -161,6 +173,10 @@ jobs:
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
 
       - name: Install packages
         run: |
@@ -207,6 +223,10 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
 
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
+
       - name: Install packages
         run: |
           poetry run make config-poetry
@@ -251,6 +271,10 @@ jobs:
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
 
       - name: Install packages
         run: |
@@ -297,6 +321,10 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
 
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
+
       - name: Install packages
         run: |
           poetry run make config-poetry
@@ -341,6 +369,10 @@ jobs:
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
 
       - name: Install packages
         run: |
@@ -391,6 +423,10 @@ jobs:
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
+      - name: Set environment variable
+        run: |
+          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
 
       - name: Install packages
         run: |
