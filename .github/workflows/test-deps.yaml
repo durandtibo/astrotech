@@ -33,7 +33,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'batchtensor'
           package-version: ${{ matrix.batchtensor-version }}
@@ -78,7 +78,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'coola'
           package-version: ${{ matrix.coola-version }}
@@ -123,7 +123,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'iden'
           package-version: ${{ matrix.iden-version }}
@@ -168,7 +168,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'karbonn'
           package-version: ${{ matrix.karbonn-version }}
@@ -213,7 +213,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'minevent'
           package-version: ${{ matrix.minevent-version }}
@@ -258,7 +258,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'minrecord'
           package-version: ${{ matrix.minrecord-version }}
@@ -303,7 +303,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'objectory'
           package-version: ${{ matrix.objectory-version }}
@@ -348,7 +348,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'torch'
           package-version: ${{ matrix.torch-version }}
@@ -398,7 +398,7 @@ jobs:
           poetry run make install
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.2.2
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'numpy'
           package-version: ${{ matrix.numpy-version }}
