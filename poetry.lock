@@ -748,17 +748,17 @@ test = ["coverage", "flake8 (>=3.0)", "flake8-quotes", "shtab"]
 
 [[package]]
 name = "minevent"
-version = "0.3.0"
+version = "0.3.1"
 description = "Minimal event system for Machine Learning"
 optional = false
-python-versions = ">=3.9,<3.13"
+python-versions = "<3.14,>=3.9"
 files = [
-    {file = "minevent-0.3.0-py3-none-any.whl", hash = "sha256:4b568f2d2f94e5970ec24795020007129f601c9e8bc2df40291d284b2cedc683"},
-    {file = "minevent-0.3.0.tar.gz", hash = "sha256:aa954816318d90d24603457dfe47ba2d6849f3208987b17ff9b8696161f74db0"},
+    {file = "minevent-0.3.1-py3-none-any.whl", hash = "sha256:a881042542778c93962b7574788beb8f2fa67895769eb0546c6b2579c74311f4"},
+    {file = "minevent-0.3.1.tar.gz", hash = "sha256:c946746cf09f191882738129c3448584dcebbf78a389782f660d94e64471b596"},
 ]
 
 [package.dependencies]
-coola = ">=0.1,<1.0"
+coola = ">=0.8.4,<1.0"
 
 [[package]]
 name = "minrecord"
