@@ -762,20 +762,20 @@ coola = ">=0.8.4,<1.0"
 
 [[package]]
 name = "minrecord"
-version = "0.0.2"
+version = "0.1.0"
 description = "Minimalist library to record values in a ML workflow"
 optional = false
-python-versions = "<3.13,>=3.9"
+python-versions = "<3.14,>=3.9"
 files = [
-    {file = "minrecord-0.0.2-py3-none-any.whl", hash = "sha256:781fc00e46f0cd076ec1784f929b601a59b176789cffbedae5eea7df6a129c9e"},
-    {file = "minrecord-0.0.2.tar.gz", hash = "sha256:8ca4ae6b23769f988fbc25d2254a9351a67da49ff20e2c484d23df00e9eff41d"},
+    {file = "minrecord-0.1.0-py3-none-any.whl", hash = "sha256:bd81022f3ec21ff82a9bef632dfa56f2daa05eca54ec5c6f99445ba9ea71c460"},
+    {file = "minrecord-0.1.0.tar.gz", hash = "sha256:b96f6d455b62b3022bd0527c3ec20971be78fc638ef84790a9c5c3414d745805"},
 ]
 
 [package.dependencies]
-coola = ">=0.7.2,<1.0"
+coola = ">=0.8.4,<1.0"
 
 [package.extras]
-all = ["objectory (>=0.1,<1.0)"]
+all = ["objectory (>=0.2,<1.0)"]
 
 [[package]]
 name = "mkdocs"
