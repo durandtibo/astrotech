@@ -602,13 +602,13 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "karbonn"
-version = "0.0.2"
+version = "0.0.3"
 description = "A library of PyTorch modules"
 optional = false
 python-versions = "<3.13,>=3.9"
 files = [
-    {file = "karbonn-0.0.2-py3-none-any.whl", hash = "sha256:9d4409a13a3862529eb77aa49dcb7db9ac96d26d5c86710ec0e22fdb9e8f766a"},
-    {file = "karbonn-0.0.2.tar.gz", hash = "sha256:1a3f04af2e536a2b5ed10da17c5af2e4e6db8a0f65e504228de0c920f3f4075a"},
+    {file = "karbonn-0.0.3-py3-none-any.whl", hash = "sha256:2e0d91142874aa4e7701f9edf81be6c56778d454c4b69ff484e1e05ca93508d7"},
+    {file = "karbonn-0.0.3.tar.gz", hash = "sha256:d698fbf19151e6510b65a20d514283f0461c8813a6b37fef1239cf5dfa44330e"},
 ]
 
 [package.dependencies]
@@ -620,7 +620,7 @@ torch = [
 ]
 
 [package.extras]
-all = ["numpy (>=1.22,<2.0)", "numpy (>=1.22,<3.0)", "objectory (>=0.1,<1.0)", "pytorch-ignite (>=0.4.11,<1.0)", "pytorch-ignite (>=0.4.12,<1.0)", "tabulate (>=0.9,<0.10)"]
+all = ["numpy (>=1.22,<2.0)", "numpy (>=1.22,<3.0)", "objectory (>=0.1,<1.0)", "pytorch-ignite (>=0.4.11,<1.0)", "pytorch-ignite (>=0.4.12,<1.0)", "scikit-learn (>=1.0,<2.0)", "tabulate (>=0.9,<0.10)"]
 
 [[package]]
 name = "markdown"
@@ -748,34 +748,34 @@ test = ["coverage", "flake8 (>=3.0)", "flake8-quotes", "shtab"]
 
 [[package]]
 name = "minevent"
-version = "0.3.0"
+version = "0.3.1"
 description = "Minimal event system for Machine Learning"
 optional = false
-python-versions = ">=3.9,<3.13"
+python-versions = "<3.14,>=3.9"
 files = [
-    {file = "minevent-0.3.0-py3-none-any.whl", hash = "sha256:4b568f2d2f94e5970ec24795020007129f601c9e8bc2df40291d284b2cedc683"},
-    {file = "minevent-0.3.0.tar.gz", hash = "sha256:aa954816318d90d24603457dfe47ba2d6849f3208987b17ff9b8696161f74db0"},
+    {file = "minevent-0.3.1-py3-none-any.whl", hash = "sha256:a881042542778c93962b7574788beb8f2fa67895769eb0546c6b2579c74311f4"},
+    {file = "minevent-0.3.1.tar.gz", hash = "sha256:c946746cf09f191882738129c3448584dcebbf78a389782f660d94e64471b596"},
 ]
 
 [package.dependencies]
-coola = ">=0.1,<1.0"
+coola = ">=0.8.4,<1.0"
 
 [[package]]
 name = "minrecord"
-version = "0.0.2"
+version = "0.1.0"
 description = "Minimalist library to record values in a ML workflow"
 optional = false
-python-versions = "<3.13,>=3.9"
+python-versions = "<3.14,>=3.9"
 files = [
-    {file = "minrecord-0.0.2-py3-none-any.whl", hash = "sha256:781fc00e46f0cd076ec1784f929b601a59b176789cffbedae5eea7df6a129c9e"},
-    {file = "minrecord-0.0.2.tar.gz", hash = "sha256:8ca4ae6b23769f988fbc25d2254a9351a67da49ff20e2c484d23df00e9eff41d"},
+    {file = "minrecord-0.1.0-py3-none-any.whl", hash = "sha256:bd81022f3ec21ff82a9bef632dfa56f2daa05eca54ec5c6f99445ba9ea71c460"},
+    {file = "minrecord-0.1.0.tar.gz", hash = "sha256:b96f6d455b62b3022bd0527c3ec20971be78fc638ef84790a9c5c3414d745805"},
 ]
 
 [package.dependencies]
-coola = ">=0.7.2,<1.0"
+coola = ">=0.8.4,<1.0"
 
 [package.extras]
-all = ["objectory (>=0.1,<1.0)"]
+all = ["objectory (>=0.2,<1.0)"]
 
 [[package]]
 name = "mkdocs"
