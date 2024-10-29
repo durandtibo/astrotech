@@ -62,7 +62,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        coola-version: [ 0.8.3, 0.8.2 ]
+        coola-version: [ 0.8.4, 0.8.2 ]
 
     steps:
       - name: Checkout
@@ -111,7 +111,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        iden-version: [ 0.0.4 ]
+        iden-version: [ 0.1.0 ]
 
     steps:
       - name: Checkout
@@ -160,7 +160,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        karbonn-version: [ 0.0.2 ]
+        karbonn-version: [ 0.0.3 ]
 
     steps:
       - name: Checkout
@@ -209,7 +209,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        minevent-version: [ 0.3.0 ]
+        minevent-version: [ 0.3.1, 0.3.0 ]
 
     steps:
       - name: Checkout
@@ -258,7 +258,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        minrecord-version: [ 0.0.2 ]
+        minrecord-version: [ 0.1.0 ]
 
     steps:
       - name: Checkout
