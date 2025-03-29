@@ -70,7 +70,7 @@ black = ">=24.10"
 coverage = { extras = ["toml"], version = "^7.7" }
 docformatter = { extras = ["tomli"], version = "^1.7" }
 feu = ">=0.3,<1.0"
-pre-commit = "^4.1"
+pre-commit = "^4.2"
 pygments = "^2.19"
 pytest = "^8.3"
 pytest-cov = "^6.0"
