@@ -3,6 +3,9 @@ on:
   workflow_call:
   workflow_dispatch:  # to trigger manually
 
+permissions:
+  contents: read
+
 jobs:
   batchtensor:
     runs-on: ${{ matrix.os }}
@@ -61,7 +64,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        coola-version: [ 0.8.4, 0.8.2 ]
+        coola-version: [ 0.8.7, 0.8.2 ]
 
     steps:
       - name: Checkout
@@ -109,7 +112,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        iden-version: [ 0.1.0 ]
+        iden-version: [ 0.2.0, 0.1.0 ]
 
     steps:
       - name: Checkout
@@ -349,7 +352,16 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        torch-version: [ 2.5.0, 2.4.1, 2.3.1, 2.2.2, 2.1.2, 2.0.1 ]
+        torch-version: [
+          2.7.0,
+          2.6.0,
+          2.5.0,
+          2.4.1,
+          2.3.1,
+          2.2.2,
+          2.1.2,
+          2.0.1,
+        ]
 
     steps:
       - name: Checkout
@@ -402,7 +414,15 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        numpy-version: [ 2.1.2, 2.0.2, 1.26.4, 1.25.2, 1.24.3, 1.23.5 ]
+        numpy-version: [
+          2.2.5,
+          2.1.2,
+          2.0.2,
+          1.26.4,
+          1.25.2,
+          1.24.3,
+          1.23.5,
+        ]
 
     steps:
       - name: Checkout
