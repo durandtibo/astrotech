@@ -10,22 +10,15 @@
     <a href="https://github.com/durandtibo/astrotech/actions">
         <img alt="Nightly Package Tests" src="https://github.com/durandtibo/astrotech/workflows/Nightly%20Package%20Tests/badge.svg">
     </a>
+    <a href="https://codecov.io/gh/durandtibo/astrotech">
+        <img alt="Codecov" src="https://codecov.io/gh/durandtibo/astrotech/branch/main/graph/badge.svg">
+    </a>
     <br/>
     <a href="https://durandtibo.github.io/astrotech/">
         <img alt="Documentation" src="https://github.com/durandtibo/astrotech/workflows/Documentation%20(stable)/badge.svg">
     </a>
     <a href="https://durandtibo.github.io/astrotech/">
         <img alt="Documentation" src="https://github.com/durandtibo/astrotech/workflows/Documentation%20(unstable)/badge.svg">
-    </a>
-    <br/>
-    <a href="https://codecov.io/gh/durandtibo/astrotech">
-        <img alt="Codecov" src="https://codecov.io/gh/durandtibo/astrotech/branch/main/graph/badge.svg">
-    </a>
-    <a href="https://codeclimate.com/github/durandtibo/astrotech/maintainability">
-        <img src="https://api.codeclimate.com/v1/badges/8581d9c3cf10cf05b7ce/maintainability" />
-    </a>
-    <a href="https://codeclimate.com/github/durandtibo/astrotech/test_coverage">
-        <img src="https://api.codeclimate.com/v1/badges/8581d9c3cf10cf05b7ce/test_coverage" />
     </a>
     <br/>
     <a href="https://github.com/psf/black">
