@@ -163,11 +163,7 @@ class PaddedSequenceLoss(Module):
         target = batch[self._target_key].flatten(0, 1)
 
         # Get the mask and remove the examples that are masked
-        mask = (
-            batch.get(self._mask_key, None)
-            if self._mask_in_batch
-            else net_out.get(self._mask_key, None)
-        )
+        mask = batch.get(self._mask_key) if self._mask_in_batch else net_out.get(self._mask_key)
         prediction, target = self._mask_inputs(prediction=prediction, target=target, mask=mask)
         return {ct.LOSS: self.criterion(prediction, target)}
 
