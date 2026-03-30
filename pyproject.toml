@@ -73,7 +73,7 @@ coverage = { extras = ["toml"], version = "^7.10" }
 docformatter = { extras = ["tomli"], version = "^1.7" }
 feu = ">=0.3.5,<1.0"
 pre-commit = "^4.3"
-pygments = "^2.19"
+pygments = "^2.20"
 pytest = "^8.4"
 pytest-cov = "^7.1"
 pytest-timeout = "^2.4"
