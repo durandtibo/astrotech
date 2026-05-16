@@ -1,4 +1,5 @@
-r"""Contain the implementation of a simple model which is composed of 3 modules: network, criterion and metrics."""
+r"""Contain the implementation of a simple model which is composed of 3
+modules: network, criterion and metrics."""
 
 from __future__ import annotations
 
