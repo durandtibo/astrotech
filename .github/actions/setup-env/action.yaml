@@ -35,12 +35,12 @@ runs:
     - name: Install invoke
       shell: bash
       run: |
-        make install-invoke
+        uv pip install "invoke>=3.0,<4.0" "invoke-tasklib>=0.1.0a0,<1.0"
 
     - name: Install dependencies
       shell: bash
       run: |
-        inv install ${{ inputs.install-args }}
+        inv env.install ${{ inputs.install-args }}
 
     - name: Install valid package version
       if: ${{ inputs.package-name != '' }}
@@ -53,12 +53,12 @@ runs:
     - name: Show python config
       shell: bash
       run: |
-        inv show-python-config
+        inv env.show-python-config
 
     - name: Show installed packages
       shell: bash
       run: |
-        inv show-installed-packages
+        inv env.show-installed-packages
 
     - name: Show dependency tree
       shell: bash

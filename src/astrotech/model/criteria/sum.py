@@ -74,4 +74,4 @@ class SumLoss(ModuleDict):
         for key, criterion in self.items():
             out[f"{ct.LOSS}_{key}"] = criterion(net_out, batch)[ct.LOSS]
             out[ct.LOSS] += out[f"{ct.LOSS}_{key}"]
-        return out
+        return out  # ty: ignore[invalid-explicit-return]

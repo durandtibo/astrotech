@@ -14,26 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: '3.12'
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install-all
-
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
 
       - name: check astrotech
         run: |

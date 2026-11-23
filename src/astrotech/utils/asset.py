@@ -272,14 +272,14 @@ class AssetManager:
         keys = keys or tuple(self._assets.keys())
         for key in keys:
             if key not in state_dict:
-                logger.info(f"Ignore key {key} because it is not in the state dict")
+                logger.info("Ignore key %s because it is not in the state dict", key)
                 continue
             if key not in self._assets:
-                logger.info(f"Ignore key {key} because there is no module associated to it")
+                logger.info("Ignore key %s because there is no module associated to it", key)
                 continue
             if not hasattr(self._assets[key], "load_state_dict"):
                 logger.info(
-                    f"Ignore key {key} because the module does not have 'load_state_dict' method"
+                    "Ignore key %s because the module does not have 'load_state_dict' method", key
                 )
                 continue
             self._assets[key].load_state_dict(state_dict[key])
@@ -314,5 +314,5 @@ class AssetManager:
             if hasattr(module, "state_dict"):
                 state[name] = module.state_dict()
             else:
-                logger.info(f"Skip '{name}' module because it does not have 'state_dict' method")
+                logger.info("Skip '%s' module because it does not have 'state_dict' method", name)
         return state

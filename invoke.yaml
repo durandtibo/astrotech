@@ -1,0 +1,6 @@
+tasklib:
+  package:
+    name: astrotech
+  groups:
+    install: dev,docs
+    update: dev,docs

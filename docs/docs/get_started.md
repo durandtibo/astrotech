@@ -30,14 +30,13 @@ pip install astrotech numpy
 ## Installing from source
 
 To install `astrotech` from source, you can follow the steps below. First, you will need to
-install [`poetry`](https://python-poetry.org/docs/master/). `poetry` is used to manage and install
-the dependencies.
-If `poetry` is already installed on your machine, you can skip this step. There are several ways to
-install `poetry` so you can use the one that you prefer. You can check the `poetry` installation by
-running the following command:
+install [`uv`](https://docs.astral.sh/uv/). `uv` is used to manage the Python environment and to
+install the dependencies. If `uv` is already installed on your machine, you can skip this step.
+There are several ways to install `uv` so you can use the one that you prefer. You can check the
+`uv` installation by running the following command:
 
 ```shell
-poetry --version
+uv --version
 ```
 
 Then, you can clone the git repository:
@@ -46,32 +45,34 @@ Then, you can clone the git repository:
 git clone git@github.com:durandtibo/astrotech.git
 ```
 
-It is recommended to create a Python 3.9+ virtual environment. This step is optional so you
-can skip it. To create a virtual environment, you can use the following command:
+The tasks of the project are defined with [`invoke`](https://www.pyinvoke.org/) and
+[`invoke-tasklib`](https://github.com/durandtibo/invoke-tasklib). You can install them and create
+a virtual environment with all the dependencies with the following command:
 
 ```shell
-make conda
+make setup-venv
 ```
 
-It automatically creates a conda virtual environment. When the virtual environment is created, you
-can activate it with the following command:
+This command creates a Python virtual environment in the `.venv` folder and installs the package
+and its dependencies in it. When the virtual environment is created, you can activate it with the
+following command:
 
 ```shell
-conda activate astrotech
+source .venv/bin/activate
 ```
 
-This example uses `conda` to create a virtual environment, but you can use other tools or
-configurations. Then, you should install the required package to use `astrotech` with the following
+You can update the virtual environment and the dependencies at any time with the following
 command:
 
 ```shell
-make install
+inv env.update
+inv env.install
 ```
 
-This command will install all the required packages. You can also use this command to update the
-required packages. This command will check if there is a more recent package available and will
-install it. Finally, you can test the installation with the following command:
+Finally, you can test the installation with the following command:
 
 ```shell
-make unit-test-cov
+inv test.unit
 ```
+
+You can list all the available tasks with `inv --list`.

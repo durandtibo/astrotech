@@ -38,7 +38,7 @@ def disable_logging(level: int | str = logging.CRITICAL) -> Generator[None]:
     """
     prev_level = logging.getLogger(__name__).level
     if isinstance(level, str):
-        level = logging.getLevelName(level)
+        level = logging.getLevelName(level)  # ty: ignore[deprecated]
     logging.disable(level)
     try:
         yield
