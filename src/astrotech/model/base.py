@@ -159,8 +159,8 @@ def setup_model(
     ```
     """
     if isinstance(model, dict):
-        logger.info(f"Initializing a model from its configuration... {str_target_object(model)}")
+        logger.info("Initializing a model from its configuration... %s", str_target_object(model))
         model = BaseModel.factory(**model)
     if not isinstance(model, BaseModel):
-        logger.warning(f"model is not a `BaseModel` object (received: {type(model)})")
+        logger.warning("model is not a `BaseModel` object (received: %s)", type(model))
     return model

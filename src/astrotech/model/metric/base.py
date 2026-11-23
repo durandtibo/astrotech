@@ -34,7 +34,7 @@ class BaseMetric(Module, metaclass=AbstractFactory):
     """
 
     @abstractmethod
-    def attach(self, engine: BaseEngine) -> None:
+    def attach(self, engine: BaseEngine) -> None:  # ty: ignore[invalid-type-form]
         r"""Attach the current metric to an engine.
 
         This method can be used to:
@@ -60,7 +60,7 @@ class BaseMetric(Module, metaclass=AbstractFactory):
         r"""Reset the internal state of the metric."""
 
     @abstractmethod
-    def value(self, engine: BaseEngine | None = None) -> dict:
+    def value(self, engine: BaseEngine | None = None) -> dict:  # ty: ignore[invalid-type-form]
         r"""Evaluate the metric and log the results given the current
         metric state.
 
@@ -86,8 +86,8 @@ def setup_metric(metric: BaseMetric | dict) -> BaseMetric:
         The instantiated metric.
     """
     if isinstance(metric, dict):
-        logger.info(f"Initializing a metric from its configuration... {str_target_object(metric)}")
+        logger.info("Initializing a metric from its configuration... %s", str_target_object(metric))
         metric = BaseMetric.factory(**metric)
     if not isinstance(metric, Module):
-        logger.warning(f"metric is not a `torch.nn.Module` (received: {type(metric)})")
+        logger.warning("metric is not a `torch.nn.Module` (received: %s)", type(metric))
     return metric

@@ -66,7 +66,10 @@ def convert_to_list_of_dicts(mapping_of_seqs: Mapping[Hashable, Sequence]) -> li
 
     ```
     """
-    return [dict(zip(mapping_of_seqs, seqs)) for seqs in zip(*mapping_of_seqs.values())]
+    return [
+        dict(zip(mapping_of_seqs, seqs, strict=False))
+        for seqs in zip(*mapping_of_seqs.values(), strict=False)
+    ]
 
 
 def remove_keys_starting_with(mapping: Mapping, prefix: str) -> dict:
@@ -205,4 +208,4 @@ def to_flat_dict(
             )
     else:
         flat_dict[prefix] = data
-    return flat_dict
+    return flat_dict  # ty: ignore[invalid-explicit-return]

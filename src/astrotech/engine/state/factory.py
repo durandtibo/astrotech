@@ -48,7 +48,7 @@ def setup_engine_state(state: BaseEngineState | dict | None) -> BaseEngineState:
         state = EngineState()
     if isinstance(state, dict):
         logger.info(
-            f"Initializing an engine state from its configuration... {str_target_object(state)}"
+            "Initializing an engine state from its configuration... %s", str_target_object(state)
         )
         state = BaseEngineState.factory(**state)
     return state

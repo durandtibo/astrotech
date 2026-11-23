@@ -40,7 +40,7 @@ def setup_object(obj_or_config: T | dict) -> T:
     """
     if isinstance(obj_or_config, dict):
         logger.info(
-            f"Initializing {str_target_object(obj_or_config)} object from its configuration... "
+            "Initializing %s object from its configuration... ", str_target_object(obj_or_config)
         )
         return factory(**obj_or_config)
     return obj_or_config

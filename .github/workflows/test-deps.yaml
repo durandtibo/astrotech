@@ -15,28 +15,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         batchtensor-version: [ 0.1.0, 0.0.5, 0.0.4, 0.0.3, 0.0.2 ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -45,14 +35,9 @@ jobs:
           package-version: ${{ matrix.batchtensor-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov
 
 
   coola:
@@ -63,28 +48,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         coola-version: [ 0.9.0, 0.8.7, 0.8.2 ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -93,14 +68,9 @@ jobs:
           package-version: ${{ matrix.coola-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov
 
 
   iden:
@@ -111,28 +81,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         iden-version: [ 0.2.0, 0.1.0 ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -141,14 +101,9 @@ jobs:
           package-version: ${{ matrix.iden-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov
 
 
   karbonn:
@@ -159,28 +114,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         karbonn-version: [ 0.0.3 ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -189,14 +134,9 @@ jobs:
           package-version: ${{ matrix.karbonn-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov
 
 
   minevent:
@@ -207,28 +147,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         minevent-version: [ 0.3.1, 0.3.0 ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -237,14 +167,9 @@ jobs:
           package-version: ${{ matrix.minevent-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov
 
 
   minrecord:
@@ -255,28 +180,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         minrecord-version: [ 0.1.0 ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -285,14 +200,9 @@ jobs:
           package-version: ${{ matrix.minrecord-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov
 
 
   objectory:
@@ -303,28 +213,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         objectory-version: [ 0.2.0, 0.1.2, 0.1.0 ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -333,14 +233,9 @@ jobs:
           package-version: ${{ matrix.objectory-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov
 
 
   torch:
@@ -351,7 +246,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         torch-version: [
           2.8.0,
           2.7.1,
@@ -368,21 +263,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -391,14 +276,9 @@ jobs:
           package-version: ${{ matrix.torch-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov
 
 
   #################################
@@ -414,7 +294,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        python-version: [ '3.14', '3.13', '3.12', '3.11' ]
         numpy-version: [
           2.3.2,
           2.2.6,
@@ -429,21 +309,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Setup python environment
+        uses: ./.github/actions/setup-env
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Set environment variable
-        run: |
-          echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-
-      - name: Install packages
-        run: |
-          make install
+          install-args: "--no-optional-deps"
 
       - name: Install valid package version
         uses: durandtibo/pip-install-package-action@v0.4.1
@@ -452,11 +322,6 @@ jobs:
           package-version: ${{ matrix.numpy-version }}
           python-version: ${{ matrix.python-version }}
 
-      - name: Show installed packages
-        run: |
-          poetry show
-          poetry show --tree
-
       - name: Run unit tests
         run: |
-          make unit-test-cov
+          inv test.unit --cov

@@ -5,8 +5,10 @@ from __future__ import annotations
 __all__ = ["ConditionalEventHandler", "EventHandler"]
 
 from coola.utils import str_indent, str_mapping
-from minevent import ConditionalEventHandler as ConditionalEventHandler_
-from minevent import EventHandler as EventHandler_
+from minevent import (
+    ConditionalEventHandler as ConditionalEventHandler_,
+    EventHandler as EventHandler_,
+)
 
 
 class EventHandler(EventHandler_):
