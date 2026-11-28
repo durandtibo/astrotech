@@ -37,7 +37,7 @@ classifiers = [
 
 requires-python = ">=3.11"
 dependencies = [
-  "coola>=0.9,<1.0",
+  "coola>=0.9,<2.0",
   "iden>=0.2,<1.0",
   "karbonn>=0.0.4a0,<1.0",
   "minevent>=0.3,<1.0",
